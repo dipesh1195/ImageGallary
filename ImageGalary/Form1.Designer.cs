@@ -36,6 +36,7 @@ namespace ImageGalary
             this._searchBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Unmark = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Save_Button = new System.Windows.Forms.PictureBox();
             this._imageTileControl = new C1.Win.C1Tile.C1TileControl();
@@ -82,6 +83,8 @@ namespace ImageGalary
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.splitContainer1.Panel2.Controls.Add(this.Unmark);
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.Controls.Add(this._imageTileControl);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
@@ -118,16 +121,17 @@ namespace ImageGalary
             // 
             // _searchBox
             // 
-            this._searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._searchBox.BackColor = System.Drawing.SystemColors.Info;
             this._searchBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this._searchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._searchBox.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this._searchBox.Location = new System.Drawing.Point(0, 0);
             this._searchBox.Margin = new System.Windows.Forms.Padding(0);
             this._searchBox.Multiline = true;
             this._searchBox.Name = "_searchBox";
             this._searchBox.Size = new System.Drawing.Size(297, 40);
             this._searchBox.TabIndex = 0;
-            this._searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._searchBox.Text = "Search Image";
             // 
             // panel2
             // 
@@ -140,6 +144,7 @@ namespace ImageGalary
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
@@ -149,6 +154,20 @@ namespace ImageGalary
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // Unmark
+            // 
+            this.Unmark.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Unmark.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Unmark.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Unmark.Location = new System.Drawing.Point(677, 2);
+            this.Unmark.Name = "Unmark";
+            this.Unmark.Size = new System.Drawing.Size(94, 29);
+            this.Unmark.TabIndex = 5;
+            this.Unmark.Text = "UNMARK";
+            this.Unmark.UseVisualStyleBackColor = false;
+            this.Unmark.Visible = false;
+            this.Unmark.Click += new System.EventHandler(this.unmark);
             // 
             // panel4
             // 
@@ -182,6 +201,7 @@ namespace ImageGalary
             this._imageTileControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._imageTileControl.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this._imageTileControl.CellHeight = 78;
             this._imageTileControl.CellSpacing = 11;
             this._imageTileControl.CellWidth = 78;
@@ -298,6 +318,7 @@ namespace ImageGalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(792, 763);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
@@ -348,6 +369,7 @@ namespace ImageGalary
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox Save_Button;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button Unmark;
     }
 }
 

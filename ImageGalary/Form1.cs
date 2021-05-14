@@ -19,7 +19,8 @@ namespace ImageGalary
         DataFetcher datafetch = new DataFetcher();
         List<Imageitem> imagesList;
         int checkedItems = 0;
-        
+        List<Image> images = new List<Image>();
+
 
         private void AddTiles(List<Imageitem> imageList)
         {
@@ -49,7 +50,7 @@ namespace ImageGalary
         {
             statusStrip1.Visible = true;
             statusStrip.Visible = true;
-            imagesList = await datafetch.GetImageData(_searchBox.Text);
+            imagesList = await datafetch.GetImageData((_searchBox.Text.Trim()));
             AddTiles(imagesList);
             statusStrip.Visible = false;
             statusStrip1.Visible = false;
@@ -63,7 +64,7 @@ namespace ImageGalary
 
         private void _exportImage_Click(object sender, EventArgs e)
         {
-            List<Image> images = new List<Image>();
+            
             foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
             {
                 if(tile.Checked)
@@ -133,22 +134,19 @@ namespace ImageGalary
             checkedItems++;
             panel4.Visible = true;
             _exportImage.Visible = true;
+            Unmark.Visible = true;
         }
 
         private void OnTileUnchecked(object sender, TileEventArgs e)
         {
-             checkedItems--;
-            //_exportImage.Visible = checkedItems > 0;
+            checkedItems--;
             panel4.Visible = checkedItems > 0;
             _exportImage.Visible = checkedItems > 0;
+            Unmark.Visible = checkedItems > 0;
         }
 
         private void OnClickSave(object sender, EventArgs e)
         {
-            /* List<Image> images = new List<Image>();
-            SaveFileDialog saveFile = new SaveFileDialog();
-            */
-
             saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog1.Title = "Save an Image File";
             foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
@@ -168,8 +166,18 @@ namespace ImageGalary
             
         }
 
-
-
-
+        private void unmark(object sender, EventArgs e)
+        {
+            checkedItems = 0;
+            panel4.Visible = checkedItems > 0;
+            _exportImage.Visible = checkedItems > 0;
+            images.Clear();
+            foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+            {
+                tile.Checked = false;
+            }
         }
+
+        
+    }
 }
