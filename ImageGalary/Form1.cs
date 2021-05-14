@@ -172,11 +172,11 @@ namespace ImageGalary
                                     break;
 
                                 case 2:
-                                    this.button2.Image.Save(fs,System.Drawing.Imaging.ImageFormat.Bmp);
+                                    this.tile.Image.Save(fs,System.Drawing.Imaging.ImageFormat.Bmp);
                                     break;
 
                                 case 3:
-                                    this.button2.Image.Save(fs,System.Drawing.Imaging.ImageFormat.Gif);
+                                    this.tile.Image.Save(fs,System.Drawing.Imaging.ImageFormat.Gif);
                                     break;
                             }
 
