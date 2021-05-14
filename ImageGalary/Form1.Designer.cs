@@ -37,7 +37,6 @@ namespace ImageGalary
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.Save_Button = new System.Windows.Forms.PictureBox();
             this._imageTileControl = new C1.Win.C1Tile.C1TileControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -49,6 +48,7 @@ namespace ImageGalary
             this.panel3 = new System.Windows.Forms.Panel();
             this._exportImage = new System.Windows.Forms.PictureBox();
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,7 +85,7 @@ namespace ImageGalary
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.Controls.Add(this._imageTileControl);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(762, 753);
+            this.splitContainer1.Size = new System.Drawing.Size(792, 763);
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -103,89 +103,73 @@ namespace ImageGalary
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(762, 40);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 40);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this._searchBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(190, 0);
+            this.panel1.Location = new System.Drawing.Point(198, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 40);
+            this.panel1.Size = new System.Drawing.Size(297, 40);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.OnSearchPanelPaint);
             // 
             // _searchBox
             // 
-            this._searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._searchBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this._searchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._searchBox.Location = new System.Drawing.Point(0, 0);
             this._searchBox.Margin = new System.Windows.Forms.Padding(0);
+            this._searchBox.Multiline = true;
             this._searchBox.Name = "_searchBox";
-            this._searchBox.Size = new System.Drawing.Size(285, 25);
+            this._searchBox.Size = new System.Drawing.Size(297, 40);
             this._searchBox.TabIndex = 0;
+            this._searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(475, 0);
+            this.panel2.Location = new System.Drawing.Point(495, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(40, 30);
+            this.panel2.Size = new System.Drawing.Size(40, 40);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(52, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.Save_Button);
             this.panel4.Location = new System.Drawing.Point(185, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(88, 28);
+            this.panel4.Size = new System.Drawing.Size(34, 28);
             this.panel4.TabIndex = 4;
             this.panel4.Visible = false;
             this.panel4.Click += new System.EventHandler(this.OnClickSave);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(26, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Save";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.OnClickSave);
-            // 
             // Save_Button
             // 
+            this.Save_Button.BackColor = System.Drawing.SystemColors.Control;
             this.Save_Button.Dock = System.Windows.Forms.DockStyle.Left;
             this.Save_Button.Image = ((System.Drawing.Image)(resources.GetObject("Save_Button.Image")));
             this.Save_Button.Location = new System.Drawing.Point(0, 0);
             this.Save_Button.Margin = new System.Windows.Forms.Padding(0);
             this.Save_Button.Name = "Save_Button";
-            this.Save_Button.Size = new System.Drawing.Size(30, 28);
+            this.Save_Button.Size = new System.Drawing.Size(34, 28);
             this.Save_Button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Save_Button.TabIndex = 0;
             this.Save_Button.TabStop = false;
@@ -212,10 +196,10 @@ namespace ImageGalary
             this._imageTileControl.Margin = new System.Windows.Forms.Padding(0);
             this._imageTileControl.MaximumRowsOrColumns = 20;
             this._imageTileControl.Name = "_imageTileControl";
-            this._imageTileControl.Padding = new System.Windows.Forms.Padding(0);
-            this._imageTileControl.Size = new System.Drawing.Size(762, 665);
+            this._imageTileControl.Padding = new System.Windows.Forms.Padding(2);
+            this._imageTileControl.Size = new System.Drawing.Size(792, 675);
             this._imageTileControl.SurfacePadding = new System.Windows.Forms.Padding(12, 4, 12, 4);
-            this._imageTileControl.SwipeDistance = 20;
+            this._imageTileControl.SwipeDistance = 10;
             this._imageTileControl.SwipeRearrangeDistance = 98;
             this._imageTileControl.TabIndex = 3;
             this._imageTileControl.TileChecked += new System.EventHandler<C1.Win.C1Tile.TileEventArgs>(this.OnTileChecked);
@@ -306,11 +290,15 @@ namespace ImageGalary
             this.c1PdfDocument1.UseFastTextOut = true;
             this.c1PdfDocument1.UseFontShaping = true;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 753);
+            this.ClientSize = new System.Drawing.Size(792, 763);
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(810, 810);
@@ -359,7 +347,7 @@ namespace ImageGalary
         private C1.Win.C1Tile.Tile tile3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox Save_Button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
