@@ -88,12 +88,14 @@ namespace ImageGalary
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.Controls.Add(this._imageTileControl);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.splitContainer1.Size = new System.Drawing.Size(792, 763);
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
@@ -101,9 +103,11 @@ namespace ImageGalary
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 40);
@@ -112,44 +116,44 @@ namespace ImageGalary
             // panel1
             // 
             this.panel1.Controls.Add(this._searchBox);
-            this.panel1.Location = new System.Drawing.Point(198, 0);
+            this.panel1.Location = new System.Drawing.Point(199, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 40);
+            this.panel1.Size = new System.Drawing.Size(295, 36);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.OnSearchPanelPaint);
             // 
             // _searchBox
             // 
             this._searchBox.BackColor = System.Drawing.SystemColors.Info;
-            this._searchBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._searchBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._searchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._searchBox.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this._searchBox.Location = new System.Drawing.Point(0, 0);
-            this._searchBox.Margin = new System.Windows.Forms.Padding(0);
+            this._searchBox.Margin = new System.Windows.Forms.Padding(2);
             this._searchBox.Multiline = true;
             this._searchBox.Name = "_searchBox";
-            this._searchBox.Size = new System.Drawing.Size(297, 40);
+            this._searchBox.PlaceholderText = "Search Image";
+            this._searchBox.Size = new System.Drawing.Size(295, 36);
             this._searchBox.TabIndex = 0;
-            this._searchBox.Text = "Search Image";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(495, 0);
+            this.panel2.Location = new System.Drawing.Point(494, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(40, 40);
+            this.panel2.Size = new System.Drawing.Size(40, 36);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -164,7 +168,7 @@ namespace ImageGalary
             this.Unmark.Name = "Unmark";
             this.Unmark.Size = new System.Drawing.Size(94, 29);
             this.Unmark.TabIndex = 5;
-            this.Unmark.Text = "UNMARK";
+            this.Unmark.Text = "Mark All";
             this.Unmark.UseVisualStyleBackColor = false;
             this.Unmark.Visible = false;
             this.Unmark.Click += new System.EventHandler(this.unmark);
@@ -213,7 +217,7 @@ namespace ImageGalary
             this._imageTileControl.Groups.Add(this.group1);
             this._imageTileControl.GroupSpacing = 1;
             this._imageTileControl.Location = new System.Drawing.Point(0, 44);
-            this._imageTileControl.Margin = new System.Windows.Forms.Padding(0);
+            this._imageTileControl.Margin = new System.Windows.Forms.Padding(2);
             this._imageTileControl.MaximumRowsOrColumns = 20;
             this._imageTileControl.Name = "_imageTileControl";
             this._imageTileControl.Padding = new System.Windows.Forms.Padding(2);

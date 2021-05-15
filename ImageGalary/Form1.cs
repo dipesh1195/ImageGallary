@@ -20,6 +20,7 @@ namespace ImageGalary
         List<Imageitem> imagesList;
         int checkedItems = 0;
         List<Image> images = new List<Image>();
+        
 
 
         private void AddTiles(List<Imageitem> imageList)
@@ -54,9 +55,6 @@ namespace ImageGalary
             AddTiles(imagesList);
             statusStrip.Visible = false;
             statusStrip1.Visible = false;
-
-
-
         }
         
         
@@ -80,6 +78,10 @@ namespace ImageGalary
 
                 imagePdfDocument.Save(saveFile.FileName);
 
+            }
+            else if(saveFile.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
             }
 
         }
@@ -149,33 +151,55 @@ namespace ImageGalary
         {
             saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog1.Title = "Save an Image File";
-            foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+            try
             {
-                if (tile.Checked)
+                foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
                 {
-                   
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    if (tile.Checked)
                     {
+
+                        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                        {
+
                             tile.Image.Save(saveFileDialog1.FileName);
 
-                    }
-                }
+                        }else if(saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }}}
+            catch(IOException ee)
+            {
+                MessageBox.Show(ee.ToString());
             }
-            
-
-            
         }
+        Boolean mark = true;
 
         private void unmark(object sender, EventArgs e)
         {
-            checkedItems = 0;
-            panel4.Visible = checkedItems > 0;
-            _exportImage.Visible = checkedItems > 0;
-            images.Clear();
-            foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+            if (mark == true)
             {
-                tile.Checked = false;
+                foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+                {
+                    tile.Checked = true;
+                }
+                Unmark.Text = "UnMark";
+
+
             }
+           if (mark == false)
+            {
+                checkedItems = 0;
+                panel4.Visible = checkedItems > 0;
+                _exportImage.Visible = checkedItems > 0;
+                images.Clear();
+                foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+                {
+                    tile.Checked = false;
+                }
+                Unmark.Text = "Mark All";
+            }
+            mark = !mark;
         }
 
         
