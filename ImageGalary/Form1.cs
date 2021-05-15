@@ -20,7 +20,7 @@ namespace ImageGalary
         List<Imageitem> imagesList;
         int checkedItems = 0;
         List<Image> images = new List<Image>();
-        
+
 
 
         private void AddTiles(List<Imageitem> imageList)
@@ -157,12 +157,10 @@ namespace ImageGalary
                 {
                     if (tile.Checked)
                     {
-
+                        
                         if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                        {
-
+                        { 
                             tile.Image.Save(saveFileDialog1.FileName);
-
                         }else if(saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                         {
                             return;
@@ -177,15 +175,11 @@ namespace ImageGalary
 
         private void unmark(object sender, EventArgs e)
         {
-            if (mark == true)
-            {
-                foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
-                {
+            if (mark == true){
+                foreach (Tile tile in _imageTileControl.Groups[0].Tiles){
                     tile.Checked = true;
                 }
                 Unmark.Text = "UnMark";
-
-
             }
            if (mark == false)
             {
@@ -201,7 +195,5 @@ namespace ImageGalary
             }
             mark = !mark;
         }
-
-        
     }
 }
