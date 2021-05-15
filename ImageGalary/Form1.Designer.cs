@@ -65,7 +65,7 @@ namespace ImageGalary
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._exportImage)).BeginInit();
             this.SuspendLayout();
-            // 
+       
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
