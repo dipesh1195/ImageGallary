@@ -9,7 +9,7 @@ using C1.Win.C1Tile;
 
 namespace ImageGalary
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
         public Form1()
         {
@@ -23,11 +23,16 @@ namespace ImageGalary
 
 
 
+
+
         private void AddTiles(List<Imageitem> imageList)
         {
-            
-                _imageTileControl.Groups[0].Tiles.Clear();
-                foreach (var imageitem in imageList)
+            _imageTileControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left |  AnchorStyles.Right;
+            _imageTileControl.Groups[0].Tiles.Clear();
+            _imageTileControl.AllowChecking = true;
+            _imageTileControl.AllowRearranging = true;
+            _imageTileControl.BackColor = SystemColors.GradientInactiveCaption;
+            foreach (var imageitem in imageList)
                 {
                 Tile tile = new();
                 tile.HorizontalSize = 2;
@@ -49,16 +54,24 @@ namespace ImageGalary
            
         private async void PictureBox1_Click(object sender, EventArgs e)
         {
-            statusStrip1.Visible = true;
-            statusStrip.Visible = true;
-            imagesList = await datafetch.GetImageData((_searchBox.Text.Trim()));
-            if (imagesList.Count != 0)
-                AddTiles(imagesList);
-            else
-                MessageBox.Show("No Image Found");
-           
-            statusStrip.Visible = false;
-            statusStrip1.Visible = false;
+            try
+            {
+                statusStrip1.Visible = true;
+                statusStrip.Visible = true;
+                imagesList = await datafetch.GetImageData((_searchBox.Text.Trim()));
+                if (imagesList.Count != 0)
+                    AddTiles(imagesList);
+                else
+                    MessageBox.Show("No Image Found");
+
+                statusStrip.Visible = false;
+                statusStrip1.Visible = false;
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+            
         }
         
         
@@ -155,10 +168,10 @@ namespace ImageGalary
                             }else
                                 tile.Image.Save(saveFileDialog1.FileName);
                         }
-                    }   
-                    
-               }
-                MessageBox.Show("Image Saved");
+                    }
+                    MessageBox.Show("Image Saved");
+                }
+                
             }
             catch(Exception ee)
             {
