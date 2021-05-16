@@ -15,11 +15,11 @@ namespace ImageGalary
         {
             InitializeComponent();
         }
-        readonly C1.C1Pdf.C1PdfDocument imagePdfDocument = new();
-        readonly DataFetcher datafetch = new ();
-        List<Imageitem> imagesList;
-        int checkedItems = 0;
-        readonly List<Image> images = new();
+         C1.C1Pdf.C1PdfDocument imagePdfDocument = new();
+         DataFetcher datafetch = new ();
+         List<Imageitem> imagesList;
+         int checkedItems = 0;
+         List<Image> images = new();
 
 
 
@@ -122,27 +122,43 @@ namespace ImageGalary
             _exportImage.Visible = checkedItems > 0;
             Unmark.Visible = checkedItems > 0;
         }
+
+
         //this method saves selected images in user specified directory one by one
         private void OnClickSave(object sender, EventArgs e)
         {
+            int i = 0;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog1.Title = "Save an Image File";
+            saveFileDialog1.FileName = Convert.ToString(++i);
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.OverwritePrompt = false; 
+
             try
             {
-                foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
-                { // check for marked tiles in group
-                    if (tile.Checked)
-                    {
-                        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                        { 
-                        tile.Image.Save(saveFileDialog1.FileName);
-                        }
-                        else
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
+                    { // check for marked tiles in group
+                        if (tile.Checked)
                         {
-                            return;
+                        
+                            if (File.Exists(saveFileDialog1.FileName))
+                            {
+                                saveFileDialog1.FileName = Convert.ToString(++i);
+                                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                                {    
+                                    tile.Image.Save(saveFileDialog1.FileName);
+                                }
+                            }else
+                                tile.Image.Save(saveFileDialog1.FileName);
                         }
-                    }}
-                MessageBox.Show("Saved Image");
+                    }   
+                    
+               }
+                MessageBox.Show("Image Saved");
             }
             catch(Exception ee)
             {

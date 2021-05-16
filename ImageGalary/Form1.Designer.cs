@@ -48,7 +48,6 @@ namespace ImageGalary
             this.panel3 = new System.Windows.Forms.Panel();
             this._exportImage = new System.Windows.Forms.PictureBox();
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -316,10 +315,6 @@ namespace ImageGalary
             this.c1PdfDocument1.UseFastTextOut = true;
             this.c1PdfDocument1.UseFontShaping = true;
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -373,9 +368,9 @@ namespace ImageGalary
         private C1.Win.C1Tile.Tile tile1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox Save_Button;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button Unmark;
         private System.Windows.Forms.Panel panel5;
+        
     }
 }
 
