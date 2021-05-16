@@ -15,11 +15,11 @@ namespace ImageGalary
         {
             InitializeComponent();
         }
-        C1.C1Pdf.C1PdfDocument imagePdfDocument = new C1.C1Pdf.C1PdfDocument();
-        DataFetcher datafetch = new DataFetcher();
+        readonly C1.C1Pdf.C1PdfDocument imagePdfDocument = new();
+        readonly DataFetcher datafetch = new ();
         List<Imageitem> imagesList;
         int checkedItems = 0;
-        List<Image> images = new List<Image>();
+        readonly List<Image> images = new();
 
 
 
@@ -29,14 +29,14 @@ namespace ImageGalary
                 _imageTileControl.Groups[0].Tiles.Clear();
                 foreach (var imageitem in imageList)
                 {
-                Tile tile = new Tile();
+                Tile tile = new();
                 tile.HorizontalSize = 2;
                 tile.VerticalSize = 2;
                 _imageTileControl.Groups[0].Tiles.Add(tile);
                 _imageTileControl.Orientation = LayoutOrientation.Vertical;
                 Image img = Image.FromStream(new MemoryStream(imageitem.Base64));
-                Template tl = new Template();
-                ImageElement ie = new ImageElement();
+                Template tl = new();
+                ImageElement ie = new();
                 ie.ImageLayout = ForeImageLayout.Stretch;
                 tl.Elements.Add(ie);
                 tile.Template = tl;
@@ -47,38 +47,40 @@ namespace ImageGalary
         }
         
            
-        private async void pictureBox1_Click(object sender, EventArgs e)
+        private async void PictureBox1_Click(object sender, EventArgs e)
         {
             statusStrip1.Visible = true;
             statusStrip.Visible = true;
             imagesList = await datafetch.GetImageData((_searchBox.Text.Trim()));
-            AddTiles(imagesList);
+            if (imagesList.Count != 0)
+                AddTiles(imagesList);
+            else
+                MessageBox.Show("No Image Found");
+           
             statusStrip.Visible = false;
             statusStrip1.Visible = false;
         }
         
         
         
-
-        private void _exportImage_Click(object sender, EventArgs e)
+        //this method save selected images as pdf 
+        private void ExportImage_Click(object sender, EventArgs e)
         {
             
             foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
             {
-                if(tile.Checked)
-                    images.Add(tile.Image);
+                if(tile.Checked)//if tile is selected 
+                    images.Add(tile.Image);//add selected images to List of images
             }
-            ConvertToPdf(images);
-            SaveFileDialog saveFile = new SaveFileDialog();
+            ConvertToPdf(images); //calling ConvertToPdf mehod by passing List<Image> images as parameter
+            SaveFileDialog saveFile = new(); 
             saveFile.DefaultExt = "pdf";
             saveFile.Filter = "PDF files (*.pdf)|*.pdf*";
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-
-                imagePdfDocument.Save(saveFile.FileName);
+                imagePdfDocument.Save(saveFile.FileName); //saves created PDF file to user specified destination.
                 MessageBox.Show("Saved PDF");
-
             }
             else
             {
@@ -103,34 +105,11 @@ namespace ImageGalary
                 }
         }
 
-        private void OnTileControlPaint(object sender, PaintEventArgs e)
-        {
-            Pen p = new Pen(Color.LightGray);
-            e.Graphics.DrawLine(p, 0, 0, 810, 0);
-        }
-        private void OnExportImagePaint(object sender, PaintEventArgs e)
-        {
-            Rectangle r = new Rectangle(panel3.Location.X, panel3.Location.Y, panel3.Width, panel3.Height);
-                r.X -= 29;
-                r.Y -= 4;
-                r.Width--;
-                r.Height--;
-                Pen p = new Pen(Color.LightGray);
-                e.Graphics.DrawRectangle(p, r);
-                e.Graphics.DrawLine(p, new Point(0, 43), new Point(this.Width, 43));
-        }
 
-        private void OnSearchPanelPaint(object sender, PaintEventArgs e)
-        {
-            Rectangle r = _searchBox.Bounds;
-            r.Inflate(3, 3);
-            Pen p = new Pen(Color.LightGray);
-            e.Graphics.DrawRectangle(p, r);
-        }
 
         private void OnTileChecked(object sender, TileEventArgs e)
         {
-            checkedItems++;
+            checkedItems++;  
             panel4.Visible = true;
             _exportImage.Visible = true;
             Unmark.Visible = true;
@@ -143,7 +122,7 @@ namespace ImageGalary
             _exportImage.Visible = checkedItems > 0;
             Unmark.Visible = checkedItems > 0;
         }
-
+        //this method saves selected images in user specified directory one by one
         private void OnClickSave(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
@@ -170,9 +149,11 @@ namespace ImageGalary
                 MessageBox.Show(ee.ToString());
             }
         }
-        Boolean mark = true;
 
-        private void unmark(object sender, EventArgs e)
+
+        //Method for marking/unmarking all the images shown.
+        Boolean mark = true;
+        private void Unmark_click(object sender, EventArgs e)
         {
             if (mark == true){
                 foreach (Tile tile in _imageTileControl.Groups[0].Tiles){
@@ -194,5 +175,34 @@ namespace ImageGalary
             }
             mark = !mark;
         }
+
+
+
+
+        private void OnTileControlPaint(object sender, PaintEventArgs e)
+        {
+            Pen p = new(Color.LightGray);
+            e.Graphics.DrawLine(p, 0, 0, 810, 0);
+        }
+        private void OnExportImagePaint(object sender, PaintEventArgs e)
+        {
+            Rectangle r = new(panel3.Location.X, panel3.Location.Y, panel3.Width, panel3.Height);
+            r.X -= 29;
+            r.Y -= 4;
+            r.Width--;
+            r.Height--;
+            Pen p = new (Color.LightGray);
+            e.Graphics.DrawRectangle(p, r);
+            e.Graphics.DrawLine(p, new Point(0, 43), new Point(this.Width, 43));
+        }
+
+        private void OnSearchPanelPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle r = _searchBox.Bounds;
+            r.Inflate(3, 3);
+            Pen p = new (Color.LightGray);
+            e.Graphics.DrawRectangle(p, r);
+        }
+
     }
 }

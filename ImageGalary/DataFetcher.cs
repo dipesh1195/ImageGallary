@@ -12,21 +12,20 @@ namespace ImageGalary
     
      class DataFetcher
     {
-           async Task<string> GetDatafromService(string searchstring)
+         async Task<string> GetDatafromService(string searchstring)
         {
             string readText = null;
             try
             {
                 var azure = @"https://imagefetcher20200529182038.azurewebsites.net";
                 string url = azure + @"/api/fetch_images?query=" + searchstring + "&max_count=10";
-                using (HttpClient c = new HttpClient())
-                {
-                    readText = await c.GetStringAsync(url);
-                }
+                using HttpClient c = new();
+                readText = await c.GetStringAsync(url);
             }
             catch
             {
-                readText = File.ReadAllText(@"C:/Users/Dipesh Kushwaha/source/repos/ImageGalary/ImageGalary/Data/sampleData.json");
+                readText = System.Text.Encoding.UTF8.GetString(Properties.Resources.sampleData, 0, Properties.Resources.sampleData.Length); 
+                
             }
 
             return readText;
