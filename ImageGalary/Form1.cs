@@ -77,9 +77,10 @@ namespace ImageGalary
             {
 
                 imagePdfDocument.Save(saveFile.FileName);
+                MessageBox.Show("Saved PDF");
 
             }
-            else if(saveFile.ShowDialog() == DialogResult.Cancel)
+            else
             {
                 return;
             }
@@ -100,17 +101,13 @@ namespace ImageGalary
                     rect.Inflate(-72, -72);
                     imagePdfDocument.DrawImage(selectedimg, rect);
                 }
-
-            
         }
 
         private void OnTileControlPaint(object sender, PaintEventArgs e)
         {
-            
             Pen p = new Pen(Color.LightGray);
             e.Graphics.DrawLine(p, 0, 0, 810, 0);
         }
-
         private void OnExportImagePaint(object sender, PaintEventArgs e)
         {
             Rectangle r = new Rectangle(panel3.Location.X, panel3.Location.Y, panel3.Width, panel3.Height);
@@ -154,19 +151,21 @@ namespace ImageGalary
             try
             {
                 foreach (Tile tile in _imageTileControl.Groups[0].Tiles)
-                {
+                { // check for marked tiles in group
                     if (tile.Checked)
                     {
-                        
                         if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                         { 
-                            tile.Image.Save(saveFileDialog1.FileName);
-                        }else if(saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                        tile.Image.Save(saveFileDialog1.FileName);
+                        }
+                        else
                         {
                             return;
                         }
-                    }}}
-            catch(IOException ee)
+                    }}
+                MessageBox.Show("Saved Image");
+            }
+            catch(Exception ee)
             {
                 MessageBox.Show(ee.ToString());
             }

@@ -67,7 +67,7 @@ namespace ImageGalary
             this.SuspendLayout();
        
             // splitContainer1
-            // 
+             
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
@@ -75,14 +75,14 @@ namespace ImageGalary
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
+             
             // splitContainer1.Panel1
-            // 
+             
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel1.Margin = new System.Windows.Forms.Padding(2);
-            // 
+            
             // splitContainer1.Panel2
-            // 
+             
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.splitContainer1.Panel2.Controls.Add(this.Unmark);
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
@@ -92,9 +92,9 @@ namespace ImageGalary
             this.splitContainer1.Size = new System.Drawing.Size(792, 763);
             this.splitContainer1.SplitterDistance = 40;
             this.splitContainer1.TabIndex = 0;
-            // 
+             
             // tableLayoutPanel1
-            // 
+             
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -112,9 +112,9 @@ namespace ImageGalary
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 40);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
+            
             // panel1
-            // 
+             
             this.panel1.Controls.Add(this._searchBox);
             this.panel1.Location = new System.Drawing.Point(199, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -122,9 +122,9 @@ namespace ImageGalary
             this.panel1.Size = new System.Drawing.Size(295, 36);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.OnSearchPanelPaint);
-            // 
+             
             // _searchBox
-            // 
+             
             this._searchBox.BackColor = System.Drawing.SystemColors.Info;
             this._searchBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._searchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -136,18 +136,18 @@ namespace ImageGalary
             this._searchBox.PlaceholderText = "Search Image";
             this._searchBox.Size = new System.Drawing.Size(295, 36);
             this._searchBox.TabIndex = 0;
-            // 
+             
             // panel2
-            // 
+             
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(494, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(40, 36);
             this.panel2.TabIndex = 1;
-            // 
+             
             // pictureBox1
-            // 
+             
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -158,9 +158,9 @@ namespace ImageGalary
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
+            
             // Unmark
-            // 
+             
             this.Unmark.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Unmark.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Unmark.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -172,9 +172,9 @@ namespace ImageGalary
             this.Unmark.UseVisualStyleBackColor = false;
             this.Unmark.Visible = false;
             this.Unmark.Click += new System.EventHandler(this.unmark);
-            // 
+            
             // panel4
-            // 
+             
             this.panel4.Controls.Add(this.Save_Button);
             this.panel4.Location = new System.Drawing.Point(185, 4);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
@@ -183,9 +183,9 @@ namespace ImageGalary
             this.panel4.TabIndex = 4;
             this.panel4.Visible = false;
             this.panel4.Click += new System.EventHandler(this.OnClickSave);
-            // 
+           
             // Save_Button
-            // 
+            
             this.Save_Button.BackColor = System.Drawing.SystemColors.Control;
             this.Save_Button.Dock = System.Windows.Forms.DockStyle.Left;
             this.Save_Button.Image = ((System.Drawing.Image)(resources.GetObject("Save_Button.Image")));
@@ -197,9 +197,9 @@ namespace ImageGalary
             this.Save_Button.TabIndex = 0;
             this.Save_Button.TabStop = false;
             this.Save_Button.Click += new System.EventHandler(this.OnClickSave);
-            // 
+             
             // _imageTileControl
-            // 
+             
             this._imageTileControl.AllowChecking = true;
             this._imageTileControl.AllowRearranging = true;
             this._imageTileControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -229,9 +229,9 @@ namespace ImageGalary
             this._imageTileControl.TileChecked += new System.EventHandler<C1.Win.C1Tile.TileEventArgs>(this.OnTileChecked);
             this._imageTileControl.TileUnchecked += new System.EventHandler<C1.Win.C1Tile.TileEventArgs>(this.OnTileUnchecked);
             this._imageTileControl.Paint += new System.Windows.Forms.PaintEventHandler(this.OnTileControlPaint);
-            // 
+            
             // statusStrip1
-            // 
+             
             this.statusStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -242,47 +242,47 @@ namespace ImageGalary
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             this.statusStrip1.Visible = false;
-            // 
+             
             // statusStrip
-            // 
+           
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(100, 14);
             this.statusStrip.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.statusStrip.Visible = false;
-            // 
+             
             // group1
-            // 
+             
             this.group1.Name = "group1";
             this.group1.Tiles.Add(this.tile1);
             this.group1.Tiles.Add(this.tile2);
             this.group1.Tiles.Add(this.tile3);
-            // 
+             
             // tile1
-            // 
+             
             this.tile1.Name = "tile1";
             this.tile1.Visible = false;
-            // 
+             
             // tile2
-            // 
+             
             this.tile2.Name = "tile2";
             this.tile2.Visible = false;
-            // 
+            
             // tile3
-            // 
+             
             this.tile3.Name = "tile3";
             this.tile3.Visible = false;
-            // 
+             
             // panel3
-            // 
+             
             this.panel3.Controls.Add(this._exportImage);
             this.panel3.Location = new System.Drawing.Point(29, 4);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(135, 28);
             this.panel3.TabIndex = 2;
-            // 
+             
             // _exportImage
-            // 
+             
             this._exportImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -297,9 +297,9 @@ namespace ImageGalary
             this._exportImage.Visible = false;
             this._exportImage.Click += new System.EventHandler(this._exportImage_Click);
             this._exportImage.Paint += new System.Windows.Forms.PaintEventHandler(this.OnExportImagePaint);
-            // 
+            
             // c1PdfDocument1
-            // 
+            
             this.c1PdfDocument1.DocumentInfo.Author = "";
             this.c1PdfDocument1.DocumentInfo.CreationDate = new System.DateTime(((long)(0)));
             this.c1PdfDocument1.DocumentInfo.Creator = "";
@@ -313,13 +313,13 @@ namespace ImageGalary
             this.c1PdfDocument1.RotateAngle = 0F;
             this.c1PdfDocument1.UseFastTextOut = true;
             this.c1PdfDocument1.UseFontShaping = true;
-            // 
+            
             // saveFileDialog1
-            // 
+             
             this.saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-            // 
-            // Form1
-            // 
+            
+            // Form1 Properties
+            
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
