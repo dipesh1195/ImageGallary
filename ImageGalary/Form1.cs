@@ -11,9 +11,11 @@ namespace ImageGalary
 {
     public partial class Form1 : Form 
     {
+        
         public Form1()
         {
             InitializeComponent();
+
         }
          C1.C1Pdf.C1PdfDocument imagePdfDocument = new();
          DataFetcher datafetch = new ();
@@ -113,7 +115,7 @@ namespace ImageGalary
                         imagePdfDocument.NewPage();
                     }
                     firstPage = false;
-                    rect.Inflate(-72, -72);
+                    rect.Inflate(-72,-72);
                     imagePdfDocument.DrawImage(selectedimg, rect);
                 }
         }

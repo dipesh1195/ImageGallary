@@ -17,7 +17,7 @@ namespace ImageGalary
             string readText = null;
             try
             {
-                var azure = @"https://imagefetcher20200529182038.azurewebsites.net";
+                var azure = "https://imagefetcher20200529182038.azurewebsites.net";
                 string url = azure + @"/api/fetch_images?query=" + searchstring + "&max_count=5";
                 using HttpClient c = new();
                 readText = await c.GetStringAsync(url);
