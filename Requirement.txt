@@ -1,0 +1,10 @@
+I was no able to install NewtonSoft.json file so i added package source:name -> nuget.org and source->https://api.nuget.org/v3/index.json. 
+After addding this package source i was able to install newtonsoft.json file.
+To select we use right button of mouse.
+Without selecting any image we will not be able to see pdf convert and save button.
+
+
+Modules Working
+->Save to PDF
+->save as Image(jpg/png/bmp).
+->Added mark all and unmark all button.
