@@ -51,6 +51,7 @@ namespace ImageGalary
             this._exportImage = new System.Windows.Forms.PictureBox();
             this.btn = new System.Windows.Forms.Button();
             this.c1PdfDocument1 = new C1.C1Pdf.C1PdfDocument();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -238,7 +239,6 @@ namespace ImageGalary
             this._imageTileControl.SwipeRearrangeDistance = 98;
             this._imageTileControl.TabIndex = 3;
             this._imageTileControl.TileChecked += new System.EventHandler<C1.Win.C1Tile.TileEventArgs>(this.OnTileChecked);
-            this._imageTileControl.TileUnchecked += new System.EventHandler<C1.Win.C1Tile.TileEventArgs>(this.OnTileUnchecked);
             this._imageTileControl.Paint += new System.Windows.Forms.PaintEventHandler(this.OnTileControlPaint);
             // 
             // statusStrip1
@@ -379,7 +379,7 @@ namespace ImageGalary
         private  Button Unmark;
         private  Panel panel5;
         private Button btn;
-        
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

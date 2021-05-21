@@ -15,16 +15,12 @@ namespace ImageGalary
         public Form1()
         {
             InitializeComponent();
-
         }
          C1.C1Pdf.C1PdfDocument imagePdfDocument = new();
          DataFetcher datafetch = new ();
          List<Imageitem> imagesList;
          int checkedItems = 0;
          List<Image> images = new();
-
-
-
 
 
         private void AddTiles(List<Imageitem> imageList)
@@ -34,6 +30,11 @@ namespace ImageGalary
             _imageTileControl.AllowChecking = true;
             _imageTileControl.AllowRearranging = true;
             _imageTileControl.BackColor = SystemColors.GradientInactiveCaption;
+
+
+
+           // _imageTileControl.Controls.Add();
+
             foreach (var imageitem in imageList)
                 {
                 Tile tile = new();
@@ -75,9 +76,9 @@ namespace ImageGalary
             }
             
         }
+
         
-        
-        
+
         //this method save selected images as pdf 
         private void ExportImage_Click(object sender, EventArgs e)
         {
@@ -120,23 +121,29 @@ namespace ImageGalary
                 }
         }
 
-
+       
+       
 
         private void OnTileChecked(object sender, TileEventArgs e)
         {
-            checkedItems++;  
-            panel4.Visible = true;
-            _exportImage.Visible = true;
-            Unmark.Visible = true;
+            checkedItems++;
+            if (e.Tile.Checked)
+            {
+                panel4.Visible = true;
+                _exportImage.Visible = true;
+                Unmark.Visible = true;
+            }
+            else
+            {
+                checkedItems--;
+                panel4.Visible = checkedItems > 0;
+                _exportImage.Visible = checkedItems > 0;
+                Unmark.Visible = checkedItems > 0;
+            }
+            
         }
 
-        private void OnTileUnchecked(object sender, TileEventArgs e)
-        {
-            checkedItems--;
-            panel4.Visible = checkedItems > 0;
-            _exportImage.Visible = checkedItems > 0;
-            Unmark.Visible = checkedItems > 0;
-        }
+       
 
 
         //this method saves selected images in user specified directory one by one
